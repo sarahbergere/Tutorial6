@@ -1,0 +1,32 @@
+textarea {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+#editForm\:saveButton {
+    background-color: #032c6a;
+    color: white;
+    border-radius: 8px;
+    width: 20%;
+    margin-bottom: 20px;
+}
+
+.error {
+    margin-top: -10px;
+    color: red;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #032c6a;
+    height: 1px;
+    width: 100%;
+}
+

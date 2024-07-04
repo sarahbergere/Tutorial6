@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+      lang="en">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/menu.css"/>
+    <script src="library/jquery.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+    <link rel="icon" href="img/me.jfif" type="image/icon type"/>
+    <title>My Portfolio</title>
+</h:head>
+
+<body>
+    <div class="header">
+        <h1 class="animated" id="title"></h1>
+    </div>
+    <!-- <ui:include src="WEB-INF/includes/titleBar.xhtml"/> For some reason including this xhtml in a xhtml doesn't work -->
+    <ui:include src="WEB-INF/includes/menu.xhtml"/>
+
+    <div class="central">
+        <div class="informations">
+            <h3>Basic information :</h3>
+            <div class="both">
+                <div class="introduce_me">
+                    <p>Name : Sarah or 白吉</p>
+                    <p>Age : 21 years old</p>
+                    <p>Nationality : French <img src="img/french.png" alt="French Flag" width="16" height="16"/></p>
+                    <p>Education: 4th year, CY Tech, France</p>
+                </div>
+                <div class="image">
+                    <img src="img/me.jfif" alt="user image"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="career_goal">
+            <h3>Career Goals :</h3>
+            <p>When I finish my studies I would like to work in cybersecurity in a company in France. I am also open to the opportunity of working abroad for a year
+                to gain experience.</p>
+        </div>
+
+        <div class="post-it">
+            <div class="experience">
+                <h3>My experience :</h3>
+                <ul>
+                    <li class="myExperience">Internship in a company as a Software Engineer for 3 months during the summer of 2023.</li>
+                    <li class="myExperience" id="schoolProject"><a href="listProject.jsf">List school projects</a> :
+                        <ul>
+                            <ui:repeat value="#{projectBean.projects}" var="project">
+                                <li>
+                                   Project #{project.id} : #{project.title}. <a href="project.jsf?p=#{project.id}">Learn more.</a>
+                                </li>
+                            </ui:repeat>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="skills">
+                <h3>Skills :</h3>
+                <p>Technical skills :</p>
+                <ul>
+                    <li>Java, C, Prolog</li>
+                    <li>HTML, CSS, PHP, JS</li>
+                    <li>Computer network, database</li>
+                </ul>
+
+                <p>Languages spoken :</p>
+                <ul>
+                    <li>French</li>
+                    <li>English</li>
+                    <li>Spanish</li>
+                </ul>
+            </div>
+        </div>
+        <br/>
+        <div class="interest">
+            <h3>My interests :</h3>
+            <div class="sub">
+                <div class="subInterest">
+                    <img src="img/books.jfif" alt="Image of books"/>
+                    <p>In my spare time I love reading books of different genres.</p>
+                </div>
+                <div class="subInterest">
+                    <img src="img/swim.jfif" alt="someone swimming in a pool, shot in the water from underneath the person swimming"/>
+                    <p>If I have time I like to swim, I learned when I was 3 years old. It helps clearing my mind.</p>
+                </div>
+                <div class="subInterest">
+                    <img src="img/travel.jfif" alt="Image of famous monuments on earth"/>
+                    <p>I also love discovering new cultures and landscapes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

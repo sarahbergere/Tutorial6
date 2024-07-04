@@ -1,0 +1,10 @@
+.central a {
+    display: block;
+    margin-bottom: 10px;
+    color: #032c6a;
+    text-decoration: none;
+}
+
+.central a:hover {
+    text-decoration: underline;
+}

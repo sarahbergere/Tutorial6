@@ -1,0 +1,47 @@
+html {
+    background-color: ghostwhite;
+    font-family: Verdana;
+}
+
+/*----------------------MAIN PART----------------------------*/
+.central {
+    display: flex;
+    flex-direction: column;    /* this allows for each div to be under the previous one */
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.image {
+    display: flex;
+    justify-content: center; /* centers the image*/
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.image img {
+    width: 70%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.resume, #resume{
+    width: 80%;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.technologies {
+    margin-bottom: 25px;
+}
+
+.edit:link, .edit:visited {
+    color: red;
+}
+
+.edit {
+    margin-bottom: 20px;
+}

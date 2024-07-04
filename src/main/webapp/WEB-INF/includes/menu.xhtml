@@ -1,0 +1,16 @@
+<!--
+Made by Sarah BERGERE
+Student number : 24030008
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      lang="en">
+<body>
+<div class="menu" id="menu">
+    <h2><a href="index.jsf">Home</a></h2>
+    <ui:repeat value="#{projectBean.projects}" var="project">
+        <h2><a href="project.jsf?p=#{project.id}">Project #{project.id}</a></h2>
+    </ui:repeat>
+</div>
+</body>
+</html>

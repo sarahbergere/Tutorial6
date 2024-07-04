@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:utils="http://java.sun.com/jsf/composite/utils">
+<head>
+    <title>Edit Project</title>
+    <link rel="stylesheet" href="css/menu.css"/>
+    <link rel="stylesheet" href="css/project.css"/>
+    <link rel="stylesheet" href="css/form.css"/>
+    <script src="library/jquery.js" type="text/javascript"></script>
+    <script src="js/titleBar.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/editProject.js"></script>
+    <link rel="icon" href="img/me.jfif" type="image/icon type"/>
+</head>
+<body>
+    <div class="header">
+        <h1 class="animated" id="title"><h:outputText value="Edit Project #{projectBean.projectId}"/></h1>
+    </div>
+    <ui:include src="WEB-INF/includes/menu.xhtml"/>
+
+    <div class="central">
+        <utils:warnIfError/>
+        <div id="titleDiv">
+            <h2><h:outputText value="#{projectBean.project.title}"/></h2>
+        </div>
+
+        <div id="imageDiv" class="image">
+            <img id="projectImage" src="#{projectBean.project.image}" alt="Image of the project"/>
+        </div>
+
+        <div id="resume">
+            <h3>Description</h3>
+            <p><h:outputText value="#{projectBean.project.description}"/></p>
+            <p><h:outputText value="#{projectBean.project.myPart}"/></p>
+            <p><h:outputText value="#{projectBean.project.learned}"/></p>
+        </div>
+
+        <div id="technologiesDiv" class="technologies">
+            <h3>Technologies used :</h3>
+            <p><h:outputText value="#{projectBean.project.technologies}"/></p>
+        </div>
+        <hr/>
+        <div class="inputs">
+            <h:form id="editForm" enctype="multipart/form-data" method="post">
+                <h:outputLabel for="idProject"/>
+                <h:inputHidden name="idProject" id="idProject" value="#{projectBean.projectId}"/>
+
+                <h:outputLabel for="titleInput" value="Title of the project :"/><br/>
+                <h:inputTextarea name="titleInput" id="titleInput" wrap="soft" cols="25" value="#{projectBean.project.title}" required="true" requiredMessage="Project title is mandatory" validatorMessage="Title must be 3 to 30 chars">
+                    <f:validateLength minimum="3" maximum="30"/>
+                </h:inputTextarea><br/>
+                <h:message for="titleInput" styleClass="error"/><br/><br/>
+
+                <h:outputLabel for="image" value="Image :"/><br/>
+                <h:inputText name="image" id="image" value="#{projectBean.project.image}" required="true" requiredMessage="Please select an image in the img directory" validatorMessage="Please select an image in the img directory, so starting with img/">
+                    <f:validateRegex pattern="^img/.*$"/>
+                </h:inputText><br/>
+                <h:message for="image" styleClass="error"/><br/><br/>
+
+                <h:outputLabel for="description" value="Description :"/><br/>
+                <h:inputTextarea name="description" id="description" wrap="soft" cols="60" rows="10" value="#{projectBean.project.description}" required="true" requiredMessage="A description is mandatory" validatorMessage="Description must be 10 to 500 chars.">
+                    <f:validateLength minimum="10" maximum="500"/>
+                </h:inputTextarea><br/>
+                <h:message for="description" styleClass="error"/><br/><br/>
+
+                <h:outputLabel for="myPart" value="What you did : "/><br/>
+                <h:inputTextarea name="myPart" id="myPart" wrap="soft" cols="60" rows="3" value="#{projectBean.project.myPart}" required="true" requiredMessage="It is mandatory to describe what you did" validatorMessage="Tasks undertook must be at least 10 chars.">
+                    <f:validateLength minimum="10" maximum="500"/>
+                </h:inputTextarea><br/>
+                <h:message for="myPart" styleClass="error"/><br/><br/>
+
+                <h:outputLabel for="learned" value="What you learned : "/><br/>
+                <h:inputTextarea name="learned" id="learned" wrap="soft" cols="60" rows="3" value="#{projectBean.project.learned}">
+                    <f:validateLength maximum="500"/>
+                </h:inputTextarea><br/>
+                <h:message for="learned" styleClass="error"/><br/><br/>
+
+                <h:outputLabel for="technologies" value="Technologies :"/><br/>
+                <h:inputTextarea name="technologies" id="technologies" wrap="soft" cols="60" rows="4" value="#{projectBean.project.technologies}" required="true" requiredMessage="Please enter technologies used" validatorMessage="Minimum length : 3 chars">
+                    <f:validateLength minimum="3" maximum="500"/>
+                </h:inputTextarea><br/>
+                <h:message for="technologies" styleClass="error"/><br/><br/>
+
+                <h:commandButton value="Save" id="saveButton" action="#{projectBean.saveProject}"/>
+                <h:messages globalOnly="true"/>
+            </h:form>
+        </div>
+    </div>
+</body>
+</html>
