@@ -66,6 +66,7 @@ public class ProjectBean implements Serializable {
     public String saveProject() {
         if (validateProject()) {
             dbCreator.saveProject(project);
+            projects = dbCreator.getAllProjects();
             return "project?faces-redirect=true&p=" + projectId;  //redirecting to the page where the informations will be displayed
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Please fill the required fields."));

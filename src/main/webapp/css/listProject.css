@@ -8,3 +8,8 @@
 .central a:hover {
     text-decoration: underline;
 }
+
+.central li {
+    list-style-type: disclosure-closed;
+    margin-bottom: 15px;
+}

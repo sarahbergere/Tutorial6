@@ -49,7 +49,7 @@ public class EmbeddedDbCreator {
                     }
                 }
                 if (tableExists) {
-                    System.out.println("Dropping table " + tableName);
+                    System.out.println("Dropping table " +tableName);
                     statement.execute("DROP TABLE " + tableName);
                 }
 
@@ -64,7 +64,7 @@ public class EmbeddedDbCreator {
                                 tableName, smallStringType,
                                 smallStringType, bigStringType, bigStringType, bigStringType, bigStringType
                         );
-                System.out.println("Creating table " + tableDescription);
+                System.out.println("Creating table " +tableDescription);
                 statement.execute(tableDescription);
 
                 // Inserting elements in the table
@@ -91,7 +91,6 @@ public class EmbeddedDbCreator {
                 sqle.printStackTrace();
             }
         } catch (ClassNotFoundException cnfe) {
-            System.out.println("Driver class not found.");
             cnfe.printStackTrace();
         }
     }
